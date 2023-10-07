@@ -1,36 +1,80 @@
-  <div class="container">
-    <h2 style="background-color: rgb(192, 217, 255); justify-content: center; text-align: center; padding-top: 15px; padding-bottom: 15px;" class="row">  {{item.parameter}} </h2>
+<div class="container">
+  <h2
+    style="
+      background-color: rgb(192, 217, 255);
+      justify-content: center;
+      text-align: center;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    "
+    class="row"
+  >
+    {{ item.parameter }}
+  </h2>
 
-    <div class="row" style="height: 200px;">
-      <div style="background-color: rgb(241, 247, 255); text-align: center; padding-top: 90px;" class="col">
-        {{item.serialNo}}
-      </div>
-      <div style="background-color: rgb(192, 217, 255); text-align: center; padding-top: 90px;" class="col-6">
-        {{item.description}}
-      </div>
-      <div style="background-color: rgb(241, 247, 255); text-align: center; padding-top: 90px;" class="col">
-        {{item.type}}
-      </div>
+  <div class="row" style="height: 200px">
+    <div
+      style="
+        background-color: rgb(241, 247, 255);
+        text-align: center;
+        padding-top: 90px;
+      "
+      class="col"
+    >
+      {{ item.serialNo }}
     </div>
+    <div
+      style="
+        background-color: rgb(192, 217, 255);
+        text-align: center;
+        padding-top: 90px;
+      "
+      class="col-6"
+    >
+      {{ item.description }}
+    </div>
+    <div
+      style="
+        background-color: rgb(241, 247, 255);
+        text-align: center;
+        padding-top: 90px;
+      "
+      class="col"
+    >
+      {{ item.type }}
+    </div>
+  </div>
 </div>
 <!-- ACTION BUTTONS -->
-<div class="form-group row mb-2" style=" justify-content: center;">
-  <div class="offset-md-2 col-md-4" style=" justify-items: center; position: relative; right: 40px;">
-    <button class="btn btn-primary mr-3" style="width:80px;" title="make changes" [routerLink]="['/pages/testing', item.id, 'edit-page']">
+<div class="form-group row mb-2" style="justify-content: center">
+  <div
+    class="offset-md-2 col-md-4"
+    style="justify-items: center; position: relative; right: 40px"
+  >
+    <button
+      class="btn btn-primary mr-3"
+      style="width: 80px"
+      title="make changes"
+      [routerLink]="['/pages/testing', item.id, 'edit-page']"
+    >
       Edit
     </button>
-    <button class="btn btn-secondary mr-3"
-            style="width:80px;"
-            type="button"
-            title="Return"
-            routerLink="/pages/testing">
+    <button
+      class="btn btn-secondary mr-3"
+      style="width: 80px"
+      type="button"
+      title="Return"
+      routerLink="/pages/testing"
+    >
       Back
     </button>
-    <button class="btn btn-warning"
-            style="width:80px"
-            type="button"
-            title="Delete this data"
-            (click)="deleteFn()">
+    <button
+      class="btn btn-warning"
+      style="width: 80px"
+      type="button"
+      title="Delete this data"
+      (click)="deleteFn()"
+    >
       Delete
     </button>
   </div>

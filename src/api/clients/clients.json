@@ -1,0 +1,42 @@
+[
+  {
+    "clientId": 1,
+    "clientName": "Leaf Rake",
+    "clientRoomCode": "GDN-0011",
+    "ArrivalDate": "March 19, 2021",
+    "price": 19.95,
+    "starRating": 3.2
+  },
+  {
+    "clientId": 2,
+    "clientName": "Garden Cart",
+    "clientRoomCode": "GDN-0023",
+    "ArrivalDate": "March 18, 2021",
+    "price": 32.99,
+    "starRating": 4.2
+  },
+  {
+    "clientId": 3,
+    "clientName": "Hammer",
+    "clientRoomCode": "TBX-0048",
+    "ArrivalDate": "May 21, 2021",
+    "price": 8.9,
+    "starRating": 4.8
+  },
+  {
+    "clientId": 4,
+    "clientName": "Saw",
+    "clientRoomCode": "TBX-0022",
+    "ArrivalDate": "May 15, 2021",
+    "price": 11.55,
+    "starRating": 3.7
+  },
+  {
+    "clientId": 5,
+    "clientName": "Video Game Controller",
+    "clientRoomCode": "GMG-0042",
+    "ArrivalDate": "October 15, 2020",
+    "price": 35.95,
+    "starRating": 4.6
+  }
+]
