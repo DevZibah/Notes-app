@@ -9,16 +9,25 @@
   </header>
   <main>
     <h5>List of {{ hotelTitle }} clients</h5>
-    <div class="d-flex border border-primary row mt-3">
-      <p class="col">Id</p>
-      <p class="col">Client Name</p>
-      <p class="col">Client Room Code</p>
-      <p class="col">Date of Arrival</p>
-      <p class="col">Price Paid</p>
-      <p class="col">Rating</p>
-    </div>
-    <div>
-        
-    </div>
+    <section class="border border-white bg-white text-dark mt-4 p-3">
+      <div class="d-flex row mt-3">
+        <h6 class="col">Id</h6>
+        <h6 class="col">Client Name</h6>
+        <h6 class="col">Client Room Code</h6>
+        <h6 class="col">Date of Arrival</h6>
+        <h6 class="col">Price Paid</h6>
+        <h6 class="col">Rating</h6>
+      </div>
+      <hr>
+      <div class="row" *ngFor="let client of clients">
+        <p class="col">{{ client.clientId }}</p>
+        <p class="col">{{ client.clientName }}</p>
+        <p class="col">{{ client.clientRoomCode }}</p>
+        <p class="col">{{ client.ArrivalDate }}</p>
+        <p class="col">{{ client.price | currency : "USD" : "symbol" : "1.2-2"  }}</p>
+        <p class="col">{{ client.starRating }}</p>
+      </div>
+      <h6></h6>
+    </section>
   </main>
 </section>
