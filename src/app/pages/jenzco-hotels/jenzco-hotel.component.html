@@ -18,16 +18,22 @@
         <h6 class="col">Price Paid</h6>
         <h6 class="col">Rating</h6>
       </div>
-      <hr>
-      <div class="row" *ngFor="let client of clients">
-        <p class="col">{{ client.clientId }}</p>
-        <p class="col">{{ client.clientName }}</p>
-        <p class="col">{{ client.clientRoomCode }}</p>
-        <p class="col">{{ client.ArrivalDate }}</p>
-        <p class="col">{{ client.price | currency : "USD" : "symbol" : "1.2-2"  }}</p>
-        <p class="col">{{ client.starRating }}</p>
-      </div>
-      <h6></h6>
+      <hr />
+      <main *ngFor="let client of clients">
+        <div class="row">
+          <p class="col">{{ client.clientId }}</p>
+          <p class="col">{{ client.clientName }}</p>
+          <p class="col">{{ client.clientRoomCode }}</p>
+          <p class="col">{{ client.ArrivalDate }}</p>
+          <p class="col">
+            {{ client.price | currency : "USD" : "symbol" : "1.2-2" }}
+          </p>
+          <p class="col">{{ client.starRating }}</p>
+        </div>
+        <h6 *ngIf="client.clientName === 'Khaid'">
+          {{ client.clientName }} is the best client.
+        </h6>
+      </main>
     </section>
   </main>
 </section>
