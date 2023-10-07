@@ -13,22 +13,95 @@ import { FormDuplicationPageComponent } from 'src/app/pages/form-duplication-pag
 import { CdnPageComponent } from 'src/app/pages/cdn-page/cdn-page.component';
 import { ComplexityPageComponent } from 'src/app/pages/complexity-page/complexity-page.component';
 import { CommonIssuesPageComponent } from './pages/common-issues-page/common-issues-page.component';
+import { JenzcoHotelComponent } from './pages/jenzco-hotels/jenzco-hotel.component';
 
 
 const routes: Routes = [
-  {path: 'pages', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: PagesComponent},
-  {path: 'pages/testing', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: TestingPageComponent},
-  {path: 'pages/integrations', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: IntegrationsPageComponent},
-  {path: 'pages/testing2', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: Testing2Component},
-  { path: 'pages/testing/:id/edit-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: EditPageComponent },
-  { path: 'pages/testing/:id/view-detail-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: ViewDetailPageComponent },
-  { path: 'pages/testing/create-new', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: CreateNewComponent },
-  { path: 'pages/filters-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: FiltersPageComponent },
-  { path: 'pages/routing-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: RoutingPageComponent },
-  { path: 'pages/form-duplication-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: FormDuplicationPageComponent },
-  { path: 'pages/cdn-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: CdnPageComponent },
-  { path: 'pages/complexity-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: ComplexityPageComponent },
-  { path: 'pages/common-issues-page', loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule), component: CommonIssuesPageComponent },
+  {
+    path: 'pages',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: PagesComponent,
+  },
+  {
+    path: 'pages/testing',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: TestingPageComponent,
+  },
+  {
+    path: 'pages/integrations',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: IntegrationsPageComponent,
+  },
+  {
+    path: 'pages/testing2',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: Testing2Component,
+  },
+  // added by Chisom
+  {
+    path: 'pages/jenzco-hotels',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: JenzcoHotelComponent,
+  },
+  {
+    path: 'pages/testing/:id/edit-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: EditPageComponent,
+  },
+  {
+    path: 'pages/testing/:id/view-detail-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: ViewDetailPageComponent,
+  },
+  {
+    path: 'pages/testing/create-new',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: CreateNewComponent,
+  },
+  {
+    path: 'pages/filters-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: FiltersPageComponent,
+  },
+  {
+    path: 'pages/routing-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: RoutingPageComponent,
+  },
+  {
+    path: 'pages/form-duplication-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: FormDuplicationPageComponent,
+  },
+  {
+    path: 'pages/cdn-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: CdnPageComponent,
+  },
+  {
+    path: 'pages/complexity-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: ComplexityPageComponent,
+  },
+  {
+    path: 'pages/common-issues-page',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: CommonIssuesPageComponent,
+  },
 ];
 
 @NgModule({

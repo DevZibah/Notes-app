@@ -19,6 +19,7 @@ import { CdnPageComponent } from './cdn-page/cdn-page.component';
 import { ComplexityPageComponent } from './complexity-page/complexity-page.component';
 import { StarsComponent } from '../Shared/stars.component';
 import { CommonIssuesPageComponent } from './common-issues-page/common-issues-page.component';
+import { JenzcoHotelComponent } from './jenzco-hotels/jenzco-hotel.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { CommonIssuesPageComponent } from './common-issues-page/common-issues-pa
     ComplexityPageComponent,
     StarsComponent,
     CommonIssuesPageComponent,
+    JenzcoHotelComponent,
   ],
   imports: [
     CommonModule,
