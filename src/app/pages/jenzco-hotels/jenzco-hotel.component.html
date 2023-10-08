@@ -36,11 +36,11 @@
           <p class="col" [style.color]="textColor">
             {{ client.price | currency : "USD" : "symbol" : "1.2-2" }}
           </p>
-          <p class="col">{{ client.starRating }}</p>
+          <app-stars
+            [style.width.%]="starWidth"
+            [rating]="client.starRating"
+          ></app-stars>
         </div>
-        <!-- <h6 *ngIf="client.clientName === 'Khaid'">
-          {{ client.clientName }} is the best client.
-        </h6> -->
       </main>
     </section>
   </main>
