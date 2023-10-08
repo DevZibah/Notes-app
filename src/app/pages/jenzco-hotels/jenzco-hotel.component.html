@@ -22,17 +22,22 @@
       <main *ngFor="let client of clients">
         <div class="row">
           <p class="col">{{ client.clientId }}</p>
-          <p class="col">{{ client.clientName }}</p>
+          <p
+            class="col"
+            *ngIf="client.clientName.length == 6" 
+          >
+            {{ client.clientName }}
+          </p>
           <p class="col">{{ client.clientRoomCode }}</p>
           <p class="col">{{ client.ArrivalDate }}</p>
-          <p class="col">
+          <p class="col" [style.color]="textColor">
             {{ client.price | currency : "USD" : "symbol" : "1.2-2" }}
           </p>
           <p class="col">{{ client.starRating }}</p>
         </div>
-        <h6 *ngIf="client.clientName === 'Khaid'">
+        <!-- <h6 *ngIf="client.clientName === 'Khaid'">
           {{ client.clientName }} is the best client.
-        </h6>
+        </h6> -->
       </main>
     </section>
   </main>

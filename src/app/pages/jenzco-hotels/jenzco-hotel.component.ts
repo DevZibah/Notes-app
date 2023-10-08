@@ -8,6 +8,7 @@ import { IClient } from './clients';
 })
 export class JenzcoHotelComponent implements OnInit {
   hotelTitle: string = 'Jenzco Hotels and Suites';
+  textColor: string = 'blue';
   clients: IClient[] = [
     {
       clientId: 1,
