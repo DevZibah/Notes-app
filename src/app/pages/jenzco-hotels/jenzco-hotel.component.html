@@ -23,12 +23,15 @@
         <div class="row">
           <p class="col">{{ client.clientId }}</p>
           <p
-            class="col"
+            class="col cursor"
             [ngClass]="client.clientName.length >= 6 ? 'red' : 'blue'"
+            (click)="showClientName(client.clientName)"
           >
             {{ client.clientName }}
           </p>
-          <p class="col">{{ client.clientRoomCode }}</p>
+          <p class="col">
+            {{ client.clientRoomCode }}
+          </p>
           <p class="col">{{ client.ArrivalDate }}</p>
           <p class="col" [style.color]="textColor">
             {{ client.price | currency : "USD" : "symbol" : "1.2-2" }}

@@ -9,6 +9,7 @@ import { IClient } from './clients';
 export class JenzcoHotelComponent implements OnInit {
   hotelTitle: string = 'Jenzco Hotels and Suites';
   textColor: string = 'blue';
+
   clients: IClient[] = [
     {
       clientId: 1,
@@ -51,6 +52,10 @@ export class JenzcoHotelComponent implements OnInit {
       starRating: 4.6,
     },
   ];
+
+  showClientName(clientName: string): void {
+    alert('This is ' + clientName);
+  }
 
   constructor() {}
 
