@@ -20,6 +20,7 @@ import { ComplexityPageComponent } from './complexity-page/complexity-page.compo
 import { StarsComponent } from '../Shared/stars.component';
 import { CommonIssuesPageComponent } from './common-issues-page/common-issues-page.component';
 import { JenzcoHotelComponent } from './jenzco-hotels/jenzco-hotel.component';
+import { JenzcoHotelFooterComponent } from '../Shared/jenzco-hotel-footer.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { JenzcoHotelComponent } from './jenzco-hotels/jenzco-hotel.component';
     StarsComponent,
     CommonIssuesPageComponent,
     JenzcoHotelComponent,
+    JenzcoHotelFooterComponent,
   ],
   imports: [
     CommonModule,
