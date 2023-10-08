@@ -24,7 +24,7 @@
           <p class="col">{{ client.clientId }}</p>
           <p
             class="col"
-            *ngIf="client.clientName.length == 6" 
+            [ngClass]="client.clientName.length >= 6 ? 'red' : 'blue'"
           >
             {{ client.clientName }}
           </p>
