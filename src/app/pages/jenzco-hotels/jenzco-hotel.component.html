@@ -20,7 +20,7 @@
       </div>
       <hr />
       <main *ngFor="let client of clients">
-        <div class="row">
+        <div class="row" *ngIf="clients.length > 0">
           <p class="col">{{ client.clientId }}</p>
           <p
             class="col cursor"
