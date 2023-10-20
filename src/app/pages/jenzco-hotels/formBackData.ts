@@ -1,6 +1,6 @@
 // import InMemoryDbService so that I can implement my class on InMemoryDbService, also to access the createDb method.
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-// I use this interface as a bodyMass for strong typing data
+// I use this interface as a bodySize for strong typing data
 import { IForm } from './form-Interface';
 
 export class formBackData implements InMemoryDbService {
@@ -11,30 +11,30 @@ export class formBackData implements InMemoryDbService {
     let data: IForm[] = [
       {
         id: 1,
-        firstName: '2779',
-        lastName: 'Dollars',
-        bodyMass: 2779,
+        firstName: 'Emma',
+        lastName: 'Lukemon',
+        bodySize: 10,
         description: 'this is the unit of measuring weight',
       },
       {
         id: 2,
-        firstName: '8390',
-        lastName: 'Chioma',
-        bodyMass: 8390,
+        firstName: 'Cyndy',
+        lastName: 'Eli',
+        bodySize: 14,
         description: 'this is of the alien species',
       },
       {
         id: 3,
-        firstName: '4256',
-        lastName: 'Pounds',
-        bodyMass: 4256,
+        firstName: 'hilda',
+        lastName: 'tules',
+        bodySize: 18,
         description: 'this amount is probably enough',
       },
       {
         id: 4,
-        firstName: '2543',
-        lastName: 'Clava la Espada',
-        bodyMass: 2543,
+        firstName: 'Vera',
+        lastName: 'Empenada',
+        bodySize: 12,
         description: 'this is a spanish song by Shiro Sagisu',
       },
     ];

@@ -23,42 +23,40 @@ export class formServices {
       id: 0,
       firstName: 'null',
       lastName: 'null',
-      bodyMass: 0,
+      bodySize: 0,
       description: 'null',
     };
   }
 
-  // -READ (http.get)    get stuff
+  // -READ Data
   getData(): Observable<IForm[]> {
     return this.http
       .get<IForm[]>(this.baseUrl)
       .pipe(tap((response) => console.log(JSON.stringify(response))));
   }
-  //get the specific data of the list by its id.  this.http.get<any>(`${}/${}`)  <- that's a 'template literal' which specifies the link to pass into the fn
+
   getDataById(id: number): Observable<IForm> {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
-    // .pipe(tap(data => console.log('Specific item:' + data)
-    // ))
   }
 
   updateItem(updatedItem: IForm) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); //specifies that the content will be in json format
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<IForm[]>(
       `${this.baseUrl}/${updatedItem.id}`,
       updatedItem,
       { headers }
-    ); // remember `${}/${}` cone,dollar braces/dollar braces.   Also remember headers has to be in braces {headers}
+    );
   }
 
   createItem(savedItem: IForm) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); //specifies that the content will be in json format
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
       .post<IForm>(this.baseUrl, savedItem, { headers })
       .pipe(tap(() => console.log('updateItem: ' + savedItem.id)));
   }
 
   deleteItemById(id: number): Observable<{}> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); //specifies that the content will be in json format
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.delete<IForm>(`${this.baseUrl}/${id}`, { headers });
   }
 }
