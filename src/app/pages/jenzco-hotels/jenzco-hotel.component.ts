@@ -7,7 +7,7 @@ import { IClient } from './clients';
   styleUrls: ['./jenzco-hotel.component.css'],
 })
 export class JenzcoHotelComponent implements OnInit {
-  hotelTitle: string = 'Jenzco Hotels and Suites';
+  hotelTitle: string = 'Jenzco Hotel and Suites';
   textColor: string = 'blue';
   starWidth: number = 17;
 
