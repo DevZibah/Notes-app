@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 export class formServices {
   // this below link is the link to the back end
   private baseUrl = 'api/data';
-  private complexUrl = 'api/complexData';
 
   constructor(private http: HttpClient) {
     //without "private" http would be localized in the constructor and unavailable to the class

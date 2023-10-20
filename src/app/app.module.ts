@@ -12,11 +12,13 @@ import {
   InMemoryWebApiModule,
 } from 'angular-in-memory-web-api';
 import { BackData } from './BackData';
+import { formBackData } from './pages/jenzco-hotels/formBackData';
 
 import { FormsModule } from '@angular/forms';
+import { JenzcoFormListComponent } from './pages/jenzco-hotels/jenzco-form-list.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, JenzcoFormListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(BackData),
+    HttpClientInMemoryWebApiModule.forRoot(formBackData),
     FormsModule,
   ],
   providers: [],
