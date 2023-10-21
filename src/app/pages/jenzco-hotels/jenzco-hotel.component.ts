@@ -40,7 +40,9 @@ export class JenzcoHotelComponent implements OnInit {
   starWidth: number = 17;
 
   customerForm!: FormGroup;
+  errorMessage = '';
   // customer = new IForm();
+
   formListData: IForm[] = [];
 
   clients: IClient[] = [
@@ -107,16 +109,49 @@ export class JenzcoHotelComponent implements OnInit {
     });
 
     // Getting the formListData
+    this.getData();
+  }
+
+  private getData() {
     this.service.getData().subscribe({
       next: (data) => {
         this.formListData = data;
         console.log(this.formListData);
       },
+      error: (err) => (this.errorMessage = err),
     });
   }
 
-  save() {
-    console.log(this.customerForm);
+  save(): void {
     console.log('Your deets: ' + JSON.stringify(this.customerForm.value));
+    if (this.customerForm.valid) {
+      if (this.customerForm.dirty) {
+        this.service
+          .createItem(this.customerForm.value)
+          .subscribe((response) => {
+            console.log(response);
+            this.getData();
+          });
+        if (this.customerForm.value.id === 0) {
+          this.service.createItem(this.customerForm.value).subscribe({
+            next: () => this.onSaveComplete(),
+            error: (err) => (this.errorMessage = err),
+          });
+        } else {
+          this.service.updateItem(this.customerForm.value).subscribe({
+            next: () => this.onSaveComplete(),
+            error: (err) => (this.errorMessage = err),
+          });
+        }
+      } else {
+        this.onSaveComplete();
+      }
+    } else {
+      this.errorMessage = 'Please correct the validation errors.';
+    }
+  }
+  onSaveComplete(): void {
+    this.customerForm.reset();
+    this.router.navigate(['/products']);
   }
 }

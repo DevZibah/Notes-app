@@ -1,9 +1,13 @@
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { IForm } from './form-Interface';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 // import observable cuz backend returns assynchronous data
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class formServices {
@@ -39,6 +43,16 @@ export class formServices {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
+  createItem(form: IForm): Observable<IForm> {
+    form.id == null;
+    return this.http.post<IForm>(this.baseUrl, form).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
+  }
+
   updateItem(updatedItem: IForm) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.put<IForm[]>(
@@ -46,13 +60,6 @@ export class formServices {
       updatedItem,
       { headers }
     );
-  }
-
-  createItem(savedItem: IForm) {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http
-      .post<IForm>(this.baseUrl, savedItem, { headers })
-      .pipe(tap(() => console.log('updateItem: ' + savedItem.id)));
   }
 
   deleteItemById(id: number): Observable<{}> {
