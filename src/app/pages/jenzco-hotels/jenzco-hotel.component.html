@@ -191,6 +191,32 @@
               </div>
             </div>
           </form>
+          <section class="mt-5">
+            <table id="formUsers">
+              <tr>
+                <th class="col-md-2">S/N</th>
+                <th class="col-md-2">First Name</th>
+                <th class="col-md-2">Last Name</th>
+                <th class="col-md-2">Body Size</th>
+                <th class="col-md-2">Description</th>
+                <th class="col-md-2">Update</th>
+                <th class="col-md-2">Delete</th>
+              </tr>
+              <tr *ngFor="let formUser of formUsers">
+                <td>{{ formUser.id }}</td>
+                <td>{{ formUser.firstName }}</td>
+                <td>{{ formUser.lastName }}</td>
+                <td>{{ formUser.bodySize }}</td>
+                <td>{{ formUser.description }}</td>
+                <td>
+                  <button (click)="update()">Update</button>
+                </td>
+                <td>
+                  <!-- <button (click)="deleteItemById(formUser)">Delete</button> -->
+                </td>
+              </tr>
+            </table>
+          </section>
         </div>
       </div>
       <div class="border border-danger text-dark">

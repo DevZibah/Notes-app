@@ -43,7 +43,9 @@ export class JenzcoHotelComponent implements OnInit {
   errorMessage = '';
   // customer = new IForm();
 
-  formListData: IForm[] = [];
+  formUsers: IForm[] = [];
+  edit = true;
+  add = false;
 
   clients: IClient[] = [
     {
@@ -108,21 +110,25 @@ export class JenzcoHotelComponent implements OnInit {
       description: ['', [Validators.required, Validators.maxLength(256)]],
     });
 
-    // Getting the formListData
+    // Getting the formUsers
     this.getData();
   }
 
   private getData() {
     this.service.getData().subscribe({
       next: (data) => {
-        this.formListData = data;
-        console.log(this.formListData);
+        this.formUsers = data;
+        console.log(this.formUsers);
       },
       error: (err) => (this.errorMessage = err),
     });
   }
 
-  save(): void {
+  resetValues() {
+    this.customerForm.reset();
+  }
+
+  save() {
     console.log('Your deets: ' + JSON.stringify(this.customerForm.value));
     if (this.customerForm.valid) {
       if (this.customerForm.dirty) {
@@ -131,18 +137,8 @@ export class JenzcoHotelComponent implements OnInit {
           .subscribe((response) => {
             console.log(response);
             this.getData();
+            this.resetValues();
           });
-        if (this.customerForm.value.id === 0) {
-          this.service.createItem(this.customerForm.value).subscribe({
-            next: () => this.onSaveComplete(),
-            error: (err) => (this.errorMessage = err),
-          });
-        } else {
-          this.service.updateItem(this.customerForm.value).subscribe({
-            next: () => this.onSaveComplete(),
-            error: (err) => (this.errorMessage = err),
-          });
-        }
       } else {
         this.onSaveComplete();
       }
@@ -150,8 +146,16 @@ export class JenzcoHotelComponent implements OnInit {
       this.errorMessage = 'Please correct the validation errors.';
     }
   }
+
   onSaveComplete(): void {
     this.customerForm.reset();
-    this.router.navigate(['/products']);
+    this.router.navigate(['/pages/jenzco-hotels']);
+  }
+  update() {
+    this.service
+      .updateItem(this.customerForm.value)
+      .subscribe((response) => console.log(response));
+    this.getData();
+    // this.resetValues();
   }
 }
