@@ -53,18 +53,18 @@ export class formServices {
     );
   }
 
-  // updateItem(updatedItem: IForm) {
-  //   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  //   return this.http.put<IForm[]>(
-  //     `${this.baseUrl}/${updatedItem.id}`,
-  //     updatedItem,
-  //     { headers }
-  //   );
-  // }
-
-  updateItem(form: IForm): Observable<any> {
-    return this.http.put(this.baseUrl + form.id, form);
+  updateItem(updatedItem: IForm) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<IForm[]>(
+      `${this.baseUrl}/${updatedItem.id}`,
+      updatedItem,
+      { headers }
+    );
   }
+
+  // updateItem(form: IForm): Observable<any> {
+  //   return this.http.put(this.baseUrl + form.id, form);
+  // }
 
   deleteItemById(id: number): Observable<{}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });

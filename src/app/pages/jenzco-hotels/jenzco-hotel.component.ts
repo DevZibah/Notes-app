@@ -151,11 +151,22 @@ export class JenzcoHotelComponent implements OnInit {
     this.customerForm.reset();
     this.router.navigate(['/pages/jenzco-hotels']);
   }
-  update() {
-    this.service
-      .updateItem(this.customerForm.value)
-      .subscribe((response) => console.log(response));
-    this.getData();
-    // this.resetValues();
+
+  update(formUserId: number) {
+    if (formUserId) {
+      const formUser = this.formUsers.find((x) => x.id === formUserId);
+      console.log(formUser);
+
+      if (!formUser) return;
+      this.service.updateItem(formUser).subscribe((response) => {
+        alert('Item updated successfully:' + response);
+        console.log(response);
+
+        this.getData();
+        // this.resetValues();
+      });
+    } else {
+      alert('Error updating item');
+    }
   }
 }
