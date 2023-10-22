@@ -177,7 +177,14 @@ export class JenzcoHotelComponent implements OnInit {
 
   onSaveComplete(): void {
     this.customerForm.reset();
-    alert('you cannot create the same details with same id');
     this.router.navigate(['/pages/jenzco-hotels']);
+  }
+
+  deleteItem(formUserId: number): void {
+    this.service.deleteItemById(formUserId).subscribe((response) => {
+      console.log(response);
+      this.getData();
+      this.resetValues();
+    });
   }
 }
