@@ -22,16 +22,6 @@ export class formServices {
     });
   }
 
-  private newItem(): IForm {
-    return {
-      id: 0,
-      firstName: 'null',
-      lastName: 'null',
-      bodySize: 0,
-      description: 'null',
-    };
-  }
-
   // -READ Data
   getData(): Observable<IForm[]> {
     return this.http
@@ -62,12 +52,18 @@ export class formServices {
     );
   }
 
-  // updateItem(form: IForm): Observable<any> {
-  //   return this.http.put(this.baseUrl + form.id, form);
-  // }
-
   deleteItemById(id: number): Observable<{}> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.delete<IForm>(`${this.baseUrl}/${id}`, { headers });
+  }
+  
+  private newItem(): IForm {
+    return {
+      id: 0,
+      firstName: 'null',
+      lastName: 'null',
+      bodySize: 0,
+      description: 'null',
+    };
   }
 }

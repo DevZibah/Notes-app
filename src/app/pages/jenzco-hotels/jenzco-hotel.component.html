@@ -53,6 +53,14 @@
         <div class="card-body">
           <!-- we use property binding to bind to our class component using [formGroup]-->
           <form novalidate (ngSubmit)="save()" [formGroup]="customerForm">
+            <div>
+              <input
+                type="hidden"
+                class="form-control"
+                id="id"
+                formControlName="id"
+              />
+            </div>
             <div class="form-group row mb-2">
               <label class="col-md-2 col-form-label" for="firstNameId"
                 >First Name</label
@@ -209,7 +217,7 @@
                 <td>{{ formUser.bodySize }}</td>
                 <td>{{ formUser.description }}</td>
                 <td>
-                  <button (click)="update(formUser.id)">Update</button>
+                  <button (click)="update(formUser.id)">Edit</button>
                 </td>
                 <td>
                   <!-- <button (click)="deleteItemById(formUser)">Delete</button> -->

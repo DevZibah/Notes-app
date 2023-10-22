@@ -104,6 +104,7 @@ export class JenzcoHotelComponent implements OnInit {
     console.log(this.clients);
 
     this.customerForm = this.fb.group({
+      id: null,
       firstName: ['', [Validators.required, Validators.minLength(3)]],
       lastName: ['', [Validators.required, Validators.maxLength(20)]],
       bodySize: [null, bodySize(8, 18)],
@@ -128,17 +129,44 @@ export class JenzcoHotelComponent implements OnInit {
     this.customerForm.reset();
   }
 
-  save() {
-    console.log('Your deets: ' + JSON.stringify(this.customerForm.value));
+  update(formUserId: number) {
+    if (formUserId) {
+      const formUser = this.formUsers.find((x) => x.id === formUserId);
+      console.log(formUser);
+
+      if (!formUser) return;
+      this.customerForm.setValue({
+        id: formUser.id,
+        firstName: formUser.firstName,
+        lastName: formUser.lastName,
+        bodySize: formUser.bodySize,
+        description: formUser.description,
+      });
+    } else {
+      alert('Error updating item');
+    }
+  }
+
+  save(): void {
     if (this.customerForm.valid) {
       if (this.customerForm.dirty) {
-        this.service
-          .createItem(this.customerForm.value)
-          .subscribe((response) => {
-            console.log(response);
-            this.getData();
-            this.resetValues();
-          });
+        if (this.customerForm.value.id === null) {
+          this.service
+            .createItem(this.customerForm.value)
+            .subscribe((response) => {
+              console.log(response);
+              this.getData();
+              this.resetValues();
+            });
+        } else {
+          this.service
+            .updateItem(this.customerForm.value)
+            .subscribe((response) => {
+              console.log(response);
+              this.getData();
+              this.resetValues();
+            });
+        }
       } else {
         this.onSaveComplete();
       }
@@ -149,24 +177,7 @@ export class JenzcoHotelComponent implements OnInit {
 
   onSaveComplete(): void {
     this.customerForm.reset();
+    alert('you cannot create the same details with same id');
     this.router.navigate(['/pages/jenzco-hotels']);
-  }
-
-  update(formUserId: number) {
-    if (formUserId) {
-      const formUser = this.formUsers.find((x) => x.id === formUserId);
-      console.log(formUser);
-
-      if (!formUser) return;
-      this.service.updateItem(formUser).subscribe((response) => {
-        alert('Item updated successfully:' + response);
-        console.log(response);
-
-        this.getData();
-        // this.resetValues();
-      });
-    } else {
-      alert('Error updating item');
-    }
   }
 }
