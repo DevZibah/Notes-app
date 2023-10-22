@@ -212,7 +212,9 @@
               </tr>
               <tr *ngFor="let formUser of formUsers">
                 <td>{{ formUser.id }}</td>
-                <td>{{ formUser.firstName }}</td>
+                <td (click)="getDataById(formUser.id)" class="cursor">
+                  {{ formUser.firstName }}
+                </td>
                 <td>{{ formUser.lastName }}</td>
                 <td>{{ formUser.bodySize }}</td>
                 <td>{{ formUser.description }}</td>

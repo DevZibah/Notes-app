@@ -8,8 +8,9 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IForm } from './form-Interface';
+import { Subscription } from 'rxjs';
 
 function bodySize(min: number, max: number): ValidatorFn {
   // we can add our custom validator function above the component class because the validator will only be used by this component.
@@ -46,6 +47,8 @@ export class JenzcoHotelComponent implements OnInit {
   formUsers: IForm[] = [];
   edit = true;
   add = false;
+
+  private sub: Subscription;
 
   clients: IClient[] = [
     {
@@ -97,7 +100,8 @@ export class JenzcoHotelComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private service: formServices,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -113,6 +117,11 @@ export class JenzcoHotelComponent implements OnInit {
 
     // Getting the formUsers
     this.getData();
+
+    // this.sub = this.route.paramMap.subscribe((params) => {
+    //   const id = +params.get('id')!;
+    //   this.getDataById(id);
+    // });
   }
 
   private getData() {
@@ -186,5 +195,23 @@ export class JenzcoHotelComponent implements OnInit {
       this.getData();
       this.resetValues();
     });
+  }
+
+  getDataById(formUserId: number) {
+    if (formUserId) {
+      const formUser = this.formUsers.find((x) => x.id === formUserId);
+      console.log(formUser);
+
+      this.service.getDataById(formUserId).subscribe((response) => {
+        console.log(response);
+        this.getData();
+        this.resetValues();
+      });
+    }
+    this.router.navigate([
+      '/pages/jenzco-hotels',
+      formUserId,
+      'jenzco-form-list',
+    ]);
   }
 }

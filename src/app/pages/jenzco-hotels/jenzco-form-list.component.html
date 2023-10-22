@@ -1,1 +1,12 @@
-<p>jenzco-form-list works!</p>
+<section class="border border-danger container text-white p-4">
+  <div class="" *ngIf="formUser">
+    <div class="">
+      <h4 class="">First Name: {{ formUser.firstName }}</h4>
+      <h4 class="">Last name: {{ formUser.lastName }}</h4>
+    </div>
+    <div class="">
+      <h4 class="">Body Size: {{ formUser.bodySize }}</h4>
+      <h4 class="">Description: {{ formUser.description }}</h4>
+    </div>
+  </div>
+</section>

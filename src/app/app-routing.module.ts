@@ -14,7 +14,7 @@ import { CdnPageComponent } from 'src/app/pages/cdn-page/cdn-page.component';
 import { ComplexityPageComponent } from 'src/app/pages/complexity-page/complexity-page.component';
 import { CommonIssuesPageComponent } from './pages/common-issues-page/common-issues-page.component';
 import { JenzcoHotelComponent } from './pages/jenzco-hotels/jenzco-hotel.component';
-
+import { JenzcoFormListComponent } from './pages/jenzco-hotels/jenzco-form-list.component';
 
 const routes: Routes = [
   {
@@ -47,6 +47,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/pages.module').then((m) => m.PagesModule),
     component: JenzcoHotelComponent,
+  },
+  {
+    path: 'pages/jenzco-hotels/:id/jenzco-form-list',
+    loadChildren: () =>
+      import('./pages/pages.module').then((m) => m.PagesModule),
+    component: JenzcoFormListComponent,
   },
   {
     path: 'pages/testing/:id/edit-page',
@@ -105,14 +111,15 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,
-    {
+  imports: [
+    RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
       anchorScrolling: 'enabled',
       onSameUrlNavigation: 'reload',
       // scrollOffset: [0, 50],
       relativeLinkResolution: 'legacy',
-  })],
-  exports: [RouterModule]
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

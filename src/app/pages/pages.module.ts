@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -21,7 +20,7 @@ import { StarsComponent } from '../Shared/stars.component';
 import { CommonIssuesPageComponent } from './common-issues-page/common-issues-page.component';
 import { JenzcoHotelComponent } from './jenzco-hotels/jenzco-hotel.component';
 import { JenzcoHotelFooterComponent } from '../Shared/jenzco-hotel-footer.component';
-
+import { JenzcoFormListComponent } from './jenzco-hotels/jenzco-form-list.component';
 
 @NgModule({
   declarations: [
@@ -41,13 +40,14 @@ import { JenzcoHotelFooterComponent } from '../Shared/jenzco-hotel-footer.compon
     CommonIssuesPageComponent,
     JenzcoHotelComponent,
     JenzcoHotelFooterComponent,
+    JenzcoFormListComponent,
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     ReactiveFormsModule,
     NgbModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
 })
-export class PagesModule { }
+export class PagesModule {}

@@ -15,10 +15,10 @@ import { BackData } from './BackData';
 import { formBackData } from './pages/jenzco-hotels/formBackData';
 
 import { FormsModule } from '@angular/forms';
-import { JenzcoFormListComponent } from './pages/jenzco-hotels/jenzco-form-list.component';
+// import { JenzcoFormListComponent } from './pages/jenzco-hotels/jenzco-form-list.component';
 
 @NgModule({
-  declarations: [AppComponent, JenzcoFormListComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
