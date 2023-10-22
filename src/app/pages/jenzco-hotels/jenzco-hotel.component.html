@@ -158,11 +158,8 @@
                 >Description</label
               >
               <div class="col-md-8">
-                <input
-                  class="form-control"
-                  id="descriptionId"
-                  type="text"
-                  placeholder="Enter your description here"
+                <textarea
+                  placeholder="Description"
                   formControlName="description"
                   [ngClass]="{
                     'is-invalid':
@@ -170,7 +167,9 @@
                         customerForm.get('description')?.dirty) &&
                       !customerForm.get('description')?.valid
                   }"
-                />
+                  style="width: 100%"
+                  rows="3"
+                ></textarea>
                 <span class="invalid-feedback">
                   <span
                     *ngIf="customerForm.get('description')?.errors?.['maxlength']"

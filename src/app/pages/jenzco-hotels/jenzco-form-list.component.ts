@@ -39,4 +39,7 @@ export class JenzcoFormListComponent implements OnInit {
       });
     }
   }
+  onBack(): void {
+    this.router.navigate(['/pages/jenzco-hotels']);
+  }
 }

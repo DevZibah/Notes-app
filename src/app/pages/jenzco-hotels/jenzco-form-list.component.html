@@ -1,4 +1,7 @@
 <section class="border border-danger container text-white p-4">
+  <div>
+    <p (click)="onBack()" class="cursor">Go Back</p>
+  </div>
   <div class="" *ngIf="formUser">
     <div class="">
       <h4 class="">First Name: {{ formUser.firstName }}</h4>
