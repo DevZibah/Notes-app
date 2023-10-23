@@ -6,23 +6,18 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-// import observable cuz backend returns assynchronous data
 import { Observable, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class formServices {
-  // this below link is the link to the back end
   private baseUrl = 'api/data';
 
   constructor(private http: HttpClient) {
-    //without "private" http would be localized in the constructor and unavailable to the class
-    // this console logs the BackData instantly.
     http.get(this.baseUrl).subscribe((response) => {
       console.log('baseUrl content:', response);
     });
   }
 
-  // -READ Data
   getData(): Observable<IForm[]> {
     return this.http
       .get<IForm[]>(this.baseUrl)
