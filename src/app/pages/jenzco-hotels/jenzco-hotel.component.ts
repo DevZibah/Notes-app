@@ -11,6 +11,8 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { IForm } from './form-Interface';
 import { Subscription } from 'rxjs';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { JenzcoModalComponent } from './jenzco-modal.component';
 
 function bodySize(min: number, max: number): ValidatorFn {
   // we can add our custom validator function above the component class because the validator will only be used by this component.
@@ -49,6 +51,8 @@ export class JenzcoHotelComponent implements OnInit {
   add = false;
 
   private sub: Subscription;
+
+  modalRef: MdbModalRef<JenzcoModalComponent> | null = null;
 
   clients: IClient[] = [
     {
@@ -101,7 +105,8 @@ export class JenzcoHotelComponent implements OnInit {
     private fb: FormBuilder,
     private service: formServices,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private modalService: MdbModalService
   ) {}
 
   ngOnInit(): void {
@@ -122,6 +127,13 @@ export class JenzcoHotelComponent implements OnInit {
     //   const id = +params.get('id')!;
     //   this.getDataById(id);
     // });
+  }
+
+  openModal() {
+    this.modalRef = this.modalService.open(JenzcoModalComponent);
+    this.modalRef.onClose.subscribe((message: any) => {
+      console.log(message);
+    });
   }
 
   private getData() {

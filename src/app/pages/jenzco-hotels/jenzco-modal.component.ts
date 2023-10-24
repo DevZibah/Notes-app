@@ -7,4 +7,8 @@ import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 })
 export class JenzcoModalComponent {
   constructor(public modalRef: MdbModalRef<JenzcoModalComponent>) {}
+  close(): void {
+    const closeMessage = 'Modal closed';
+    this.modalRef.close(closeMessage);
+  }
 }
