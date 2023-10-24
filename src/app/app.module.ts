@@ -15,6 +15,7 @@ import { BackData } from './BackData';
 import { formBackData } from './pages/jenzco-hotels/formBackData';
 
 import { FormsModule } from '@angular/forms';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
 // import { JenzcoFormListComponent } from './pages/jenzco-hotels/jenzco-form-list.component';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientInMemoryWebApiModule.forRoot(BackData),
     HttpClientInMemoryWebApiModule.forRoot(formBackData),
     FormsModule,
+    MdbModalModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

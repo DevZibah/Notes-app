@@ -21,6 +21,7 @@ import { CommonIssuesPageComponent } from './common-issues-page/common-issues-pa
 import { JenzcoHotelComponent } from './jenzco-hotels/jenzco-hotel.component';
 import { JenzcoHotelFooterComponent } from '../Shared/jenzco-hotel-footer.component';
 import { JenzcoFormListComponent } from './jenzco-hotels/jenzco-form-list.component';
+import { JenzcoModalComponent } from './jenzco-hotels/jenzco-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { JenzcoFormListComponent } from './jenzco-hotels/jenzco-form-list.compon
     JenzcoHotelComponent,
     JenzcoHotelFooterComponent,
     JenzcoFormListComponent,
+    JenzcoModalComponent,
   ],
   imports: [
     CommonModule,
